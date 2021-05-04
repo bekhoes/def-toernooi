@@ -5,14 +5,14 @@
         <h1 class="text-4xl font-bold text-gray-800 mb-1 tracking-tight">
           Reset your password
         </h1>
-        <h2 class="text-lg text-gray-800 font-medium">
+        <!-- <h2 class="text-lg text-gray-800 font-medium">
           New here?
           <router-link :to="{name: 'register'}"
                        class="text-teal-500 hover:text-teal-600 transition-all duration-100 ease-in-out"
           >
             Create an account
           </router-link>
-        </h2>
+        </h2> -->
       </div>
       <div class="px-3 w-screen sm:w-128 max-w-screen">
         <div class="bg-white rounded shadow py-10 lg:py-12 px-6 sm:px-8 md:px-10 lg:px-12">
