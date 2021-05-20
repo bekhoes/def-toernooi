@@ -13,7 +13,7 @@
       </template>
     </div>
 
-    <div class="mx-auto w-1/2 text-left" v-if="!started">
+    <div class="mx-auto w-1/2 text-left" v-if="started == 'false'">
       <div class="text-center mt-8 pt-20">
         <h1 class="text-6xl font-bold" style="line-height: 0;"><span class="text-red-500">DUTCH</span> <span class="text-white">ELITE</span> <span class="text-blue-600">FORCES</span></h1>
         <h1 class="text-8xl font-bold text-black">TOERNOOI</h1>
@@ -73,13 +73,13 @@
           <select class="form-select w-full text-white" v-model="teamMate3Class">
             <option style="color: black;" value="AR" :disabled="teamMate2Class == 'AR' || teamMate1Class == 'AR'">AR</option>
             <option style="color: black;" value="DMR" :disabled="teamMate2Class == 'DMR' || teamMate1Class == 'DMR'">DMR</option>
-            <option style="color: black;" value="SMG" :disabled="teamMate2Class == 'SMG' || teamMate1lass == 'SMG'">SMG</option>
+            <option style="color: black;" value="SMG" :disabled="teamMate2Class == 'SMG' || teamMate1Class == 'SMG'">SMG</option>
           </select>
           <br><br>
           <button class="def-button text-white" @submit.prevent="registerTeam">Registreer</button>
       </form>
     </div>
-    <div class="mx-auto w-1/2" v-if="started">
+    <div class="mx-auto w-1/2" v-if="started == 'true'">
       <div class="text-center mt-8 pt-20">**
         <h1 class="text-6xl font-bold" style="line-height: 0;"><span class="text-red-500">DUTCH</span> <span class="text-white">ELITE</span> <span class="text-blue-600">FORCES</span></h1>
         <h1 class="text-8xl font-bold text-black">TOERNOOI</h1>
@@ -110,6 +110,16 @@
         </tbody>
       </table>
     </div>
+    <div class="mx-auto w-1/2" v-if="started == 'hold'">
+      <div class="text-center mt-8 pt-20">**
+        <h1 class="text-6xl font-bold" style="line-height: 0;"><span class="text-red-500">DUTCH</span> <span class="text-white">ELITE</span> <span class="text-blue-600">FORCES</span></h1>
+        <h1 class="text-8xl font-bold text-black">TOERNOOI</h1>
+        <h1 class="text-4xl font-bold text-white">AANMELDINGEN GESLOTEN!</h1>
+      </div>
+      <div class="text-center mb-20 mt-auto">
+        <a href="https://discord.io/dutcheliteforces" class="text-blue-500 text-4xl hover:cursor-pointer font-bold" target="_blank">Join onze discord!</a>
+      </div>
+    </div> 
   </div>
 </template>
 
@@ -160,7 +170,7 @@ export default {
           title: 'Je hebt niet alle velden ingevuld.'
         })
       } else {
-        Axios.post('/api/register-team', {
+        Axios.post('https://casbekhuis.nl/api/register-team', {
           team_name: self.teamName,
           teamMate1BSG: this.teamMate1BSG,
           teamMate1DSC: this.teamMate1DSC,
@@ -189,20 +199,25 @@ export default {
         })
       }
     },
+    getTournamentStatus () {
+      const self = this
+      Axios.get('https://casbekhuis.nl/api/settings').then(function (response) {
+        console.log(response.data.value)
+        self.started = response.data.value
+        console.log(self.started)
+      })
+    },
     getTeams () {
       const self = this
-      Axios.get('/api/teams').then(function (response) {
+      Axios.get('https://casbekhuis.nl/api/teams').then(function (response) {
         self.teams = response.data
       }).finally( function () {
         for (let i = 0; i < self.teams.length; i++) {
           let points = 0;
           for (let j = 0; j < self.teams[i].raids.length; j++) {
-            console.log(self.teams[i].raids[j].points)
             points = (points + self.teams[i].raids[j].points)
-            console.log('total: ' + points)
           }
           self.teams[i].points = points
-          console.log(self.teams)
         }
         self.teams.sort( function (a, b) {
           return a.points - b.points
@@ -218,6 +233,7 @@ export default {
   },
   beforeMount () {
     this.getTeams()
+    this.getTournamentStatus()
   },
   mounted: function () {
     window.setInterval(() => {
