@@ -80,9 +80,14 @@
       </form>
     </div>
     <div class="mx-auto w-1/2" v-if="started">
+      <div class="text-center mt-8 pt-20">**
+        <h1 class="text-6xl font-bold" style="line-height: 0;"><span class="text-red-500">DUTCH</span> <span class="text-white">ELITE</span> <span class="text-blue-600">FORCES</span></h1>
+        <h1 class="text-8xl font-bold text-black">TOERNOOI</h1>
+        <h1 class="text-4xl font-bold text-white">LIVE SCOREBORD</h1>
+      </div>
       <div class="text-6xl mb-4">
       </div>
-      <table class="table table-auto w-full text-left bg-gray-200 rounded-xl">
+      <table class="table table-auto w-full text-left rounded-xl def-table">
         <thead>
           <tr>
             <th class="p-2">#</th>
@@ -92,7 +97,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="team, index in teams" :key="team.id" class="border-4">
+          <tr v-for="team, index in teams" :key="team.id">
             <td class="p-2">{{ index + 1 }}</td>
             <td class="p-2">{{ team.name }}</td>
             <td class="p-2">
@@ -125,7 +130,7 @@ export default {
   data: () => ({
     title: window.config.appName,
     teams: {},
-    started: false,
+    started: true,
     teamName: '',
     teamMate1BSG: '',
     teamMate1DSC: '',
@@ -259,5 +264,12 @@ select {
 }
 option {
   background-color: transparent !important;
+}
+.def-table {
+  background-color: rgba(0, 0, 0, 0.50);
+  color: white;
+}
+.def-table > tr {
+  border: 0px
 }
 </style>
