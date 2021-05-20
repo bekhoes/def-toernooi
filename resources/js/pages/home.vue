@@ -36,7 +36,18 @@ export default {
     kills: 0,
     bosskill: false,
     gpus: 0,
-    ledx: 0
+    ledx: 0,
+    started: false,
+    teamName: '',
+    teamMate1BSG: '',
+    teamMate1DSC: '',
+    teamMate1Class: '',
+    teamMate2BSG: '',
+    teamMate2DSC: '',
+    teamMate2Class: '',
+    teamMate3BSG: '',
+    teamMate3DSC: '',
+    teamMate3Class: '',
   }),
   metaInfo () {
     return { title: this.$t('home') }
@@ -76,7 +87,7 @@ export default {
           type: 'success'
         })
       })
-    }
+    },
   },
   beforeMount () {
     this.getTeams()

@@ -1,5 +1,5 @@
 <template>
-  <div class="font-hairline h-screen w-screen flex text-gray-800 bg-gray-100">
+  <div class="font-hairline h-screen w-screen flex text-gray-80 bg-def">
     <child />
   </div>
 </template>
@@ -9,3 +9,10 @@ export default {
   name: 'BasicLayout'
 }
 </script>
+<style scoped>
+  .bg-def {
+    background-image: url("/interchangelandscape.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>

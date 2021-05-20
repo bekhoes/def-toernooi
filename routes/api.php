@@ -40,3 +40,4 @@ Route::group(['middleware' => 'guest:api'], function () {
 
 
 Route::get('teams', 'TeamController@index');
+Route::post('register-team', 'TeamController@store');
