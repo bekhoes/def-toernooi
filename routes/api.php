@@ -22,6 +22,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::patch('settings/password', 'Settings\PasswordController@update');
 
     Route::post('raid', 'RaidController@store');
+
 });
 
 Route::group(['middleware' => 'guest:api'], function () {
@@ -36,9 +37,10 @@ Route::group(['middleware' => 'guest:api'], function () {
 
     Route::post('oauth/{driver}', 'Auth\OAuthController@redirectToProvider');
     Route::get('oauth/{driver}/callback', 'Auth\OAuthController@handleProviderCallback')->name('oauth.callback');
+    Route::get('teams', 'TeamController@index');
+
 });
 
 
-Route::get('teams', 'TeamController@index');
 Route::post('register-team', 'TeamController@store');
 Route::get('settings', 'SettingController@index');

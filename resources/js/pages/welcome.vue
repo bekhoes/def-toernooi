@@ -117,7 +117,7 @@
         <h1 class="text-4xl font-bold text-white">AANMELDINGEN GESLOTEN!</h1>
       </div>
       <div class="text-center mb-20 mt-auto">
-        <a href="https://discord.io/dutcheliteforces" class="text-blue-500 text-4xl hover:cursor-pointer font-bold" target="_blank">Join onze discord!</a>
+        <a href="http://discord.io/dutcheliteforces" class="text-blue-500 text-4xl hover:cursor-pointer font-bold" target="_blank">Join onze discord!</a>
       </div>
     </div> 
   </div>
@@ -170,7 +170,7 @@ export default {
           title: 'Je hebt niet alle velden ingevuld.'
         })
       } else {
-        Axios.post('https://casbekhuis.nl/api/register-team', {
+        Axios.post('http://casbekhuis.nl/api/register-team', {
           team_name: self.teamName,
           teamMate1BSG: this.teamMate1BSG,
           teamMate1DSC: this.teamMate1DSC,
@@ -201,7 +201,7 @@ export default {
     },
     getTournamentStatus () {
       const self = this
-      Axios.get('https://casbekhuis.nl/api/settings').then(function (response) {
+      Axios.get('http://casbekhuis.nl/api/settings').then(function (response) {
         console.log(response.data.value)
         self.started = response.data.value
         console.log(self.started)
@@ -209,7 +209,7 @@ export default {
     },
     getTeams () {
       const self = this
-      Axios.get('https://casbekhuis.nl/api/teams').then(function (response) {
+      Axios.get('http://casbekhuis.nl/api/teams').then(function (response) {
         self.teams = response.data
       }).finally( function () {
         for (let i = 0; i < self.teams.length; i++) {
