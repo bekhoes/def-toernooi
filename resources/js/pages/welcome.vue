@@ -170,7 +170,7 @@ export default {
           title: 'Je hebt niet alle velden ingevuld.'
         })
       } else {
-        Axios.post('http://casbekhuis.nl/api/register-team', {
+        Axios.post('http://def.casbekhuis.nl/api/register-team', {
           team_name: self.teamName,
           teamMate1BSG: this.teamMate1BSG,
           teamMate1DSC: this.teamMate1DSC,
@@ -201,7 +201,7 @@ export default {
     },
     getTournamentStatus () {
       const self = this
-      Axios.get('http://casbekhuis.nl/api/settings').then(function (response) {
+      Axios.get('http://def.casbekhuis.nl/api/settings').then(function (response) {
         console.log(response.data.value)
         self.started = response.data.value
         console.log(self.started)
@@ -209,15 +209,15 @@ export default {
     },
     getTeams () {
       const self = this
-      Axios.get('http://casbekhuis.nl/api/teams').then(function (response) {
+      Axios.get('http://def.casbekhuis.nl/api/teams').then(function (response) {
         self.teams = response.data
       }).finally( function () {
         for (let i = 0; i < self.teams.length; i++) {
           let points = 0;
           for (let j = 0; j < self.teams[i].raids.length; j++) {
-            points = (points + self.teams[i].raids[j].points)
+            points =  (parseInt(points) + parseInt(self.teams[i].raids[j].points))
           }
-          self.teams[i].points = points
+          self.teams[i].points = parseInt(points)
         }
         self.teams.sort( function (a, b) {
           return a.points - b.points
