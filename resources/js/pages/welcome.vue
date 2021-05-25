@@ -184,7 +184,7 @@ export default {
         }).then(function (response) {
           Swal.fire({
             type: 'success',
-            title: 'Je hebt team ' + this.teamName + ' opgegeven voor het DEF toernooi!'
+            title: 'Je hebt team ' + self.teamName + ' opgegeven voor het DEF toernooi!'
           }) 
           this.teamName = ''
           this.teamMate1BSG = ''
