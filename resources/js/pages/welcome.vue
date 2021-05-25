@@ -15,8 +15,8 @@
 
     <div class="mx-auto w-1/2 text-left" v-if="started == 'false'">
       <div class="text-center mt-8 pt-20">
-        <h1 class="text-6xl font-bold" style="line-height: 0;"><span class="text-red-500">DUTCH</span> <span class="text-white">ELITE</span> <span class="text-blue-600">FORCES</span></h1>
-        <h1 class="text-8xl font-bold text-black">TOERNOOI</h1>
+        <h1 class="lg:text-6xl sm:text-4xl font-bold def-header-class"><span class="text-red-500">DUTCH</span> <span class="text-white">ELITE</span> <span class="text-blue-600">FORCES</span></h1>
+        <h1 class="lg:text-8xl sm:text-6xl font-bold text-black" >TOERNOOI</h1>
       </div>
       <form class="form-bg p-4 rounded-xl" @submit.prevent="registerTeam">
           <h1 class="text-center text-2xl font-bold text-white">REGISTRATIEFORMULIER</h1>
@@ -117,7 +117,7 @@
         <h1 class="text-4xl font-bold text-white">AANMELDINGEN GESLOTEN!</h1>
       </div>
       <div class="text-center mb-20 mt-auto">
-        <a href="http://discord.io/dutcheliteforces" class="text-blue-500 text-4xl hover:cursor-pointer font-bold" target="_blank">Join onze discord!</a>
+        <a href="https://discord.io/dutcheliteforces" class="text-blue-500 text-4xl hover:cursor-pointer font-bold" target="_blank">Join onze discord!</a>
       </div>
     </div> 
   </div>
@@ -170,7 +170,7 @@ export default {
           title: 'Je hebt niet alle velden ingevuld.'
         })
       } else {
-        Axios.post('http://def.casbekhuis.nl/api/register-team', {
+        Axios.post('/api/register-team', {
           team_name: self.teamName,
           teamMate1BSG: this.teamMate1BSG,
           teamMate1DSC: this.teamMate1DSC,
@@ -201,7 +201,7 @@ export default {
     },
     getTournamentStatus () {
       const self = this
-      Axios.get('http://def.casbekhuis.nl/api/settings').then(function (response) {
+      Axios.get('/api/settings').then(function (response) {
         console.log(response.data.value)
         self.started = response.data.value
         console.log(self.started)
@@ -209,7 +209,7 @@ export default {
     },
     getTeams () {
       const self = this
-      Axios.get('http://def.casbekhuis.nl/api/teams').then(function (response) {
+      Axios.get('/api/teams').then(function (response) {
         self.teams = response.data
       }).finally( function () {
         for (let i = 0; i < self.teams.length; i++) {
@@ -288,4 +288,17 @@ option {
 .def-table > tr {
   border: 0px
 }
-</style>
+@media screen and (min-width: 1310px) {
+  .def-header-class > span {
+    line-height: 0;
+  }
+}
+@media screen and (max-width: 1310px) {
+    .def-header-class > span {
+    line-height: 0.5;
+  }
+}
+
+html {
+  line-height: 1 im !important;
+}
