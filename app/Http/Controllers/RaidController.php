@@ -40,12 +40,26 @@ class RaidController extends Controller
         $raid->team_id = $request->team;
         $score = 0;
         $score += $request->kills;
-        if ($request->bosskill == true) {
-            $score += 2;
+        $score += $request->dogtags;
+        if ($request->helmet == true) {
+            $score += 1;
         }
-        $score += $request->gpus * 2;
+        $score += $request->gpus;
+        $score += $request->tetris;
+        $score += $request->labskey;
+        $score += $request->waterfilter;
         $score += $request->ledx * 2;
+        $score += $request->moonshine * 2;
         $raid->points = $score;
+        $raid->kills = $request->kills;
+        $raid->dogtags = $request->dogtags;
+        $raid->gpu = $request->gpus;
+        $raid->tetris = $request->tetris;
+        $raid->labskey = $request->labskey;
+        $raid->waterfilter = $request->waterfilter;
+        $raid->moonshine = $request->moonshine;
+        $raid->ledx = $request->ledx;
+        $raid->helmet = $request->helmet;
         $raid->created_by = Auth::user()->id;
         $raid->save();
         return response()->json($raid);
