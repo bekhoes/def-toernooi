@@ -41,25 +41,23 @@ class RaidController extends Controller
         $score = 0;
         $score += $request->kills;
         $score += $request->dogtags;
-        if ($request->helmet == true) {
-            $score += 1;
+        $score += $request->dogtags_teamleader;
+        if ($request->reshala == true) {
+            $score += 2;
         }
-        $score += $request->gpus;
-        $score += $request->tetris;
-        $score += $request->labskey;
-        $score += $request->waterfilter;
-        $score += $request->ledx * 2;
-        $score += $request->moonshine * 2;
+        $score += $request->intel * 2;
+        $score += $request->roler * 2;
+        $score += $request->fuel * 2;
+        $score += $request->tt * 2;
         $raid->points = $score;
         $raid->kills = $request->kills;
         $raid->dogtags = $request->dogtags;
-        $raid->gpu = $request->gpus;
-        $raid->tetris = $request->tetris;
-        $raid->labskey = $request->labskey;
-        $raid->waterfilter = $request->waterfilter;
-        $raid->moonshine = $request->moonshine;
-        $raid->ledx = $request->ledx;
-        $raid->helmet = $request->helmet;
+        $raid->dogtags_teamleader = $request->dogtags_teamleader;
+        $raid->intel = $request->intel;
+        $raid->roler = $request->roler;
+        $raid->fuel = $request->fuel;
+        $raid->tt = $request->tt;
+        $raid->reshala = $request->reshala;
         $raid->created_by = Auth::user()->id;
         $raid->save();
         return response()->json($raid);

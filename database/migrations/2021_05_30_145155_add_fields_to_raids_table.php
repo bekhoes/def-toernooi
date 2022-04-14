@@ -16,13 +16,13 @@ class AddFieldsToRaidsTable extends Migration
         Schema::table('raids', function (Blueprint $table) {
             $table->unsignedBigInteger('kills')->after('team_id');
             $table->unsignedBigInteger('dogtags')->after('kills');
-            $table->unsignedBigInteger('labskey')->after('dogtags');
-            $table->unsignedBigInteger('gpu')->after('labskey');
-            $table->unsignedBigInteger('tetris')->after('gpu');
-            $table->unsignedBigInteger('ledx')->after('tetris');
-            $table->unsignedBigInteger('moonshine')->after('ledx');
-            $table->unsignedBigInteger('waterfilter')->after('moonshine');
-            $table->boolean('helmet')->after('waterfilter');
+            $table->unsignedBigInteger('dogtags_teamleader')->after('dogtags');
+            $table->unsignedBigInteger('grenade_kills')->after('dogtags_teamleader');
+            $table->unsignedBigInteger('intel')->after('grenade_kills');
+            $table->unsignedBigInteger('roler')->after('intel');
+            $table->unsignedBigInteger('fuel')->after('roler');
+            $table->unsignedBigInteger('tt')->after('fuel');
+            $table->boolean('reshala')->after('tt');
         });
     }
 
