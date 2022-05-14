@@ -8,21 +8,27 @@
         </select>
         <label>PMC Kill</label>
         <input type="number" v-model="kills" class="form-input w-full">
-        <label>Dogtags</label>
-        <input type="number" v-model="dogtags" class="form-input w-full">
-        <label>Dogtags Teamleider</label>
-        <input type="number" v-model="dogtags_teamleader" class="form-input w-full">
+        <label>Grenade Kill</label>
+        <input type="number" v-model="grenade_kill" class="form-input w-full">
+        <label>Guard Kills</label>
+        <input type="number" v-model="guard_kill" class="form-input w-full">
         <label>Intel</label>
         <input type="number" v-model="intel" class="form-input w-full">
         <label>Roler</label>
         <input type="number" v-model="roler" class="form-input w-full">
         <label>Fuel</label>
         <input type="number" v-model="fuel" class="form-input w-full">
-        <label>Golden TT</label>
-        <input type="number" v-model="tt" class="form-input w-full">
+        <label>Dogtag</label>
+        <input type="number" v-model="dogtag" class="form-input w-full">
+        <label>Dogtag Teamleider</label>
+        <input type="number" v-model="dogtags_teamleader" class="form-input w-full">
         <label>
           <input type="checkbox" v-model="reshala" class="form-checkbox">
           Reshala kill
+        </label>
+        <label>
+          <input type="checkbox" v-model="golden_tt" class="form-checkbox">
+          Golden TT
         </label><br><br>
         <button class="p-2 bg-teal-600 text-white mt-2 rounded">Opslaan</button>
       </form>
@@ -42,13 +48,15 @@ export default {
     teams: {},
     pickedTeam: null,
     kills: 0,
-    dogtags: 0,
-    dogtags_teamleader: 0,
-    reshala: false,
+    grenade_kill: 0,
+    guard_kill: 0,
     intel: 0,
     roler: 0,
     fuel: 0,
-    tt: 0,
+    dogtag: 0,
+    dogtags_teamleader: 0,
+    reshala: false,
+    golden_tt: false,
     started: false,
     teamName: '',
     teamMate1BSG: '',

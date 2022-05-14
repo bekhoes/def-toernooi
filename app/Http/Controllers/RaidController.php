@@ -39,24 +39,20 @@ class RaidController extends Controller
         $raid = new Raid;
         $raid->team_id = $request->team;
         $score = 0;
-        $score += $request->kills;
-        $score += $request->dogtags;
-        $score += $request->dogtags_teamleader;
-        if ($request->reshala == true) {
-            $score += 2;
-        }
+        $score += $request->kills * 2.5;
+        $score += $request->grenade_kill * 1.5;
+        $score += $request->guard_kill * 2;
         $score += $request->intel * 2;
         $score += $request->roler * 2;
         $score += $request->fuel * 2;
-        $score += $request->tt * 2;
-        $raid->points = $score;
-        $raid->kills = $request->kills;
-        $raid->dogtags = $request->dogtags;
-        $raid->dogtags_teamleader = $request->dogtags_teamleader;
-        $raid->intel = $request->intel;
-        $raid->roler = $request->roler;
-        $raid->fuel = $request->fuel;
-        $raid->tt = $request->tt;
+        $score += $request->dogtag;
+        $score += $request->dogtags_teamleader * 2;
+        if ($request->reshala) {
+            $score += 2;
+        }
+        if ($request->golden_tt) {
+            $score += 2;
+        }
         $raid->reshala = $request->reshala;
         $raid->created_by = Auth::user()->id;
         $raid->save();
