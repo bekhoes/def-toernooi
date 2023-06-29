@@ -18,6 +18,13 @@ $config = [
   <link href="https://fonts.googleapis.com/css2?family=Rubik+80s+Fade&family=Rubik+Burned&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ mix('dist/css/app.css') }}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tailwindcss/ui@latest/dist/tailwind-ui.min.css">
+  <style>
+    /* import Bender-Black from fonts */
+    @font-face {
+      font-family: 'Bender';
+      src: url('/fonts/Bender.otf') format('opentype');
+    }
+  </style>
 </head>
 <body>
   <div id="app"></div>

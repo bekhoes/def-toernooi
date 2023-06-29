@@ -14,7 +14,7 @@
     <div class="mx-auto w-1/2 text-left" v-if="started == 'false'" >
       <div style="background-color: rgba(0, 0, 0, 0.70) !important; padding: 4px; border-radius: 10px; margin-top: 25px;">
         <div class="text-center ">
-          <h1 class="lg:text-8xl sm:text-6xl font-bold text-white" style="font-family: 'Rubik Burned', cursive;">CROSSFIRE</h1>
+          <h1 class="lg:text-8xl sm:text-6xl font-bold text-white" style="font-family: 'Bender', cursive;">CROSSFIRE</h1>
         </div>
         <div class="grid grid-cols-8 mb-4">
           <div>
@@ -45,7 +45,7 @@
         <form class="form-bg p-4 rounded-xl"  @submit.prevent="registerTeam">
             <h1 class="text-center text-2xl font-bold text-white">REGISTRATION FORM</h1>
             <p class="text-white text-center">
-              Please make sure that you fill in your teamleader as player 1 as he will be holding the keys.
+              Please make sure that you fill in your teamleader as player 1!
             </p>
             <label class="text-white">
               Country
@@ -65,7 +65,7 @@
             </label>
             <input type="text" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; border-color: white;" placeholder="Teamname (Max. 20 characters)" v-model="teamName">
             <br><br><br>
-            <p class="font-bold text-white">Teamleader (will hold safe keys)</p>
+            <p class="font-bold text-white">Teamleader</p>
             <label class="text-white">
               Discord Player 1
             </label>
