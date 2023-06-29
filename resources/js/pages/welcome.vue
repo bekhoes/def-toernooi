@@ -50,7 +50,7 @@
             <label class="text-white">
               Country
             </label>
-            <select name="country" id="country" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; border-color: white;" placeholder="Teamname (Max. 20 characters)" v-model="country">
+            <select name="country" id="country" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; backdrop-filter: blur(7px); border-color: white;" placeholder="Teamname (Max. 20 characters)" v-model="country">
               <option value="Denmark" style="color: #000;">Denmark</option>
               <option value="France" style="color: #000;">France</option>
               <option value="Finland" style="color: #000;">Finland</option>
@@ -63,17 +63,17 @@
             <label class="text-white">
               Teamname
             </label>
-            <input type="text" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; border-color: white;" placeholder="Teamname (Max. 20 characters)" v-model="teamName">
+            <input type="text" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; backdrop-filter: blur(7px); border-color: white;" placeholder="Teamname (Max. 20 characters)" v-model="teamName">
             <br><br><br>
             <p class="font-bold text-white">Teamleader</p>
             <label class="text-white">
               Discord Player 1
             </label>
-            <input type="text" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; border-color: white;" placeholder="Discord" v-model="teamMate1DSC">
+            <input type="text" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; backdrop-filter: blur(7px); border-color: white;" placeholder="Discord" v-model="teamMate1DSC">
             <label class="text-white">
               Weaponclass Player 1
             </label>
-            <select class="form-select w-full text-white" v-model="teamMate1Class" style="background-color: transparent !important; border-color: white;">
+            <select class="form-select w-full text-white" v-model="teamMate1Class" style="background-color: transparent !important; backdrop-filter: blur(7px); border-color: white;">
               <option style="color: black;" value="AR" :disabled="teamMate3Class == 'AR' || teamMate2Class == 'AR'">AR</option>
               <option style="color: black;" value="DMR" :disabled="teamMate3Class == 'DMR' || teamMate2Class == 'DMR'">DMR</option>
               <option style="color: black;" value="SMG" :disabled="teamMate3Class == 'SMG' || teamMate2Class == 'SMG'">SMG</option>
@@ -82,11 +82,11 @@
             <label class="text-white">
               Discord Player 2
             </label>
-            <input type="text" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; border-color: white;" placeholder="Discord" v-model="teamMate2DSC">
+            <input type="text" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; backdrop-filter: blur(7px); border-color: white;" placeholder="Discord" v-model="teamMate2DSC">
             <label class="text-white">
               Weaponclass Player 2
             </label>
-            <select class="form-select w-full text-white" v-model="teamMate2Class" style="background-color: transparent !important; border-color: white;">
+            <select class="form-select w-full text-white" v-model="teamMate2Class" style="background-color: transparent !important; backdrop-filter: blur(7px); border-color: white;">
               <option style="color: black;" value="AR" :disabled="teamMate3Class == 'AR' || teamMate1Class == 'AR'">AR</option>
               <option style="color: black;" value="DMR" :disabled="teamMate3Class == 'DMR' || teamMate1Class == 'DMR'">DMR</option>
               <option style="color: black;" value="SMG" :disabled="teamMate3Class == 'SMG' || teamMate1Class == 'SMG'">SMG</option>
@@ -95,11 +95,11 @@
             <label class="text-white">
               Discord Player 3
             </label>
-            <input type="text" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; border-color: white;" placeholder="Discord" v-model="teamMate3DSC">
+            <input type="text" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; backdrop-filter: blur(7px); border-color: white;" placeholder="Discord" v-model="teamMate3DSC">
             <label class="text-white">
               Weaponclass Player 3
             </label>
-            <select class="form-select w-full text-white" v-model="teamMate3Class" style="background-color: transparent !important; border-color: white;">
+            <select class="form-select w-full text-white" v-model="teamMate3Class" style="background-color: transparent !important; backdrop-filter: blur(7px); border-color: white;">
               <option style="color: black;" value="AR" :disabled="teamMate2Class == 'AR' || teamMate1Class == 'AR'">AR</option>
               <option style="color: black;" value="DMR" :disabled="teamMate2Class == 'DMR' || teamMate1Class == 'DMR'">DMR</option>
               <option style="color: black;" value="SMG" :disabled="teamMate2Class == 'SMG' || teamMate1Class == 'SMG'">SMG</option>
@@ -301,8 +301,9 @@ body > div#app {
   font-weight: 900 ;
 }
 input {
-  background-color: transparent !important;
+  background-color: rgba(0, 0, 0, 0.80) !important;
   border-color: white;
+  backdrop-filter: blur(10px);
 }
 select {
   background: transparent !important;
