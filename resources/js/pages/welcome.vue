@@ -11,101 +11,103 @@
       </template>
     </div>
 
-    <div class="mx-auto w-1/2 text-left" v-if="started == 'false'">
-      <div class="text-center mt-8 pt-20">
-        <h1 class="lg:text-8xl sm:text-6xl font-bold text-white" style="font-family: nasalization-rg">CROSSFIRE</h1>
+    <div class="mx-auto w-1/2 text-left" v-if="started == 'false'" >
+      <div style="background-color: rgba(0, 0, 0, 0.70) !important; padding: 4px; border-radius: 10px; margin-top: 25px;">
+        <div class="text-center mt-8 pt-20">
+          <h1 class="lg:text-8xl sm:text-6xl font-bold text-white" style="font-family: nasalization-rg">CROSSFIRE</h1>
+        </div>
+        <div class="grid grid-cols-8 mb-4">
+          <div>
+            <img src="/dk.png" alt="Denmark" class="w-16 mx-auto">
+          </div>
+          <div>
+            <img src="/fr.png" alt="France" class="w-16 mx-auto">
+          </div>
+          <div>
+            <img src="/fi.png" alt="Denmark" class="w-16 mx-auto">
+          </div>
+          <div>
+            <img src="/gr.png" alt="Greece" class="w-16 mx-auto">
+          </div>
+          <div>
+            <img src="/nl.png" alt="Netherlands" class="w-16 mx-auto">
+          </div>
+          <div>
+            <img src="/no.png" alt="Norway" class="w-16 mx-auto">
+          </div>
+          <div>
+            <img src="/pl.png" alt="Poland" class="w-16 mx-auto">
+          </div>
+          <div>
+            <img src="/se.png" alt="Sweden" class="w-16 mx-auto">
+          </div>
+        </div>
+        <form class="form-bg p-4 rounded-xl"  @submit.prevent="registerTeam">
+            <h1 class="text-center text-2xl font-bold text-white">REGISTRATION FORM</h1>
+            <p class="text-white text-center">
+              Please make sure that you fill in your teamleader as player 1 as he will be holding the keys.
+            </p>
+            <label class="text-white">
+              Country
+            </label>
+            <select name="country" id="country" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; border-color: white;" placeholder="Teamname (Max. 20 characters)" v-model="country">
+              <option value="Denmark" style="color: #000;">Denmark</option>
+              <option value="France" style="color: #000;">France</option>
+              <option value="Finland" style="color: #000;">Finland</option>
+              <option value="Greece" style="color: #000;">Greece</option>
+              <option value="Netherlands" style="color: #000;">Netherlands</option>
+              <option value="Norway" style="color: #000;">Norway</option>
+              <option value="Poland" style="color: #000;">Poland</option>
+              <option value="Sweden" style="color: #000;">Sweden</option>
+            </select>
+            <label class="text-white">
+              Teamname
+            </label>
+            <input type="text" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; border-color: white;" placeholder="Teamname (Max. 20 characters)" v-model="teamName">
+            <br><br><br>
+            <p class="font-bold text-white">Teamleader (will hold safe keys)</p>
+            <label class="text-white">
+              Discord Player 1
+            </label>
+            <input type="text" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; border-color: white;" placeholder="Discord" v-model="teamMate1DSC">
+            <label class="text-white">
+              Weaponclass Player 1
+            </label>
+            <select class="form-select w-full text-white" v-model="teamMate1Class" style="background-color: transparent !important; border-color: white;">
+              <option style="color: black;" value="AR" :disabled="teamMate3Class == 'AR' || teamMate2Class == 'AR'">AR</option>
+              <option style="color: black;" value="DMR" :disabled="teamMate3Class == 'DMR' || teamMate2Class == 'DMR'">DMR</option>
+              <option style="color: black;" value="SMG" :disabled="teamMate3Class == 'SMG' || teamMate2Class == 'SMG'">SMG</option>
+            </select>
+            <br><br><br>
+            <label class="text-white">
+              Discord Player 2
+            </label>
+            <input type="text" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; border-color: white;" placeholder="Discord" v-model="teamMate2DSC">
+            <label class="text-white">
+              Weaponclass Player 2
+            </label>
+            <select class="form-select w-full text-white" v-model="teamMate2Class" style="background-color: transparent !important; border-color: white;">
+              <option style="color: black;" value="AR" :disabled="teamMate3Class == 'AR' || teamMate1Class == 'AR'">AR</option>
+              <option style="color: black;" value="DMR" :disabled="teamMate3Class == 'DMR' || teamMate1Class == 'DMR'">DMR</option>
+              <option style="color: black;" value="SMG" :disabled="teamMate3Class == 'SMG' || teamMate1Class == 'SMG'">SMG</option>
+            </select>
+            <br><br><br>
+            <label class="text-white">
+              Discord Player 3
+            </label>
+            <input type="text" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; border-color: white;" placeholder="Discord" v-model="teamMate3DSC">
+            <label class="text-white">
+              Weaponclass Player 3
+            </label>
+            <select class="form-select w-full text-white" v-model="teamMate3Class" style="background-color: transparent !important; border-color: white;">
+              <option style="color: black;" value="AR" :disabled="teamMate2Class == 'AR' || teamMate1Class == 'AR'">AR</option>
+              <option style="color: black;" value="DMR" :disabled="teamMate2Class == 'DMR' || teamMate1Class == 'DMR'">DMR</option>
+              <option style="color: black;" value="SMG" :disabled="teamMate2Class == 'SMG' || teamMate1Class == 'SMG'">SMG</option>
+            </select>
+            <br><br>
+            <button class="def-button text-white" @submit.prevent="registerTeam" style="border: 2px solid; border-radius: 15px; padding: 8px 32px; font-weight: 900;">Register</button>
+        </form>
       </div>
-      <div class="grid grid-cols-8 mb-4">
-        <div>
-          <img src="/dk.png" alt="Denmark" class="w-16 mx-auto">
-        </div>
-        <div>
-          <img src="/fr.png" alt="France" class="w-16 mx-auto">
-        </div>
-        <div>
-          <img src="/fi.png" alt="Denmark" class="w-16 mx-auto">
-        </div>
-         <div>
-          <img src="/gr.png" alt="Greece" class="w-16 mx-auto">
-        </div>
-         <div>
-          <img src="/nl.png" alt="Netherlands" class="w-16 mx-auto">
-        </div>
-         <div>
-          <img src="/no.png" alt="Norway" class="w-16 mx-auto">
-        </div>
-         <div>
-          <img src="/pl.png" alt="Poland" class="w-16 mx-auto">
-        </div>
-         <div>
-          <img src="/se.png" alt="Sweden" class="w-16 mx-auto">
-        </div>
-      </div>
-      <form class="form-bg p-4 rounded-xl" style="background-color: rgba(0, 0, 0, 0.50) !important;" @submit.prevent="registerTeam">
-          <h1 class="text-center text-2xl font-bold text-white">REGISTRATION FORM</h1>
-          <p class="text-white text-center">
-            Please make sure that you fill in your teamleader as player 1 as he will be holding the keys.
-          </p>
-          <label class="text-white">
-            Country
-          </label>
-          <select name="country" id="country" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; border-color: white;" placeholder="Teamname (Max. 20 characters)" v-model="country">
-            <option value="Denmark" style="color: #000;">Denmark</option>
-            <option value="France" style="color: #000;">France</option>
-            <option value="Finland" style="color: #000;">Finland</option>
-            <option value="Greece" style="color: #000;">Greece</option>
-            <option value="Netherlands" style="color: #000;">Netherlands</option>
-            <option value="Norway" style="color: #000;">Norway</option>
-            <option value="Poland" style="color: #000;">Poland</option>
-            <option value="Sweden" style="color: #000;">Sweden</option>
-          </select>
-          <label class="text-white">
-            Teamname
-          </label>
-          <input type="text" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; border-color: white;" placeholder="Teamname (Max. 20 characters)" v-model="teamName">
-          <br><br><br>
-          <p class="font-bold text-white">Teamleader (will hold safe keys)</p>
-          <label class="text-white">
-            Discord Player 1
-          </label>
-          <input type="text" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; border-color: white;" placeholder="Discord" v-model="teamMate1DSC">
-          <label class="text-white">
-            Weaponclass Player 1
-          </label>
-          <select class="form-select w-full text-white" v-model="teamMate1Class" style="background-color: transparent !important; border-color: white;">
-            <option style="color: black;" value="AR" :disabled="teamMate3Class == 'AR' || teamMate2Class == 'AR'">AR</option>
-            <option style="color: black;" value="DMR" :disabled="teamMate3Class == 'DMR' || teamMate2Class == 'DMR'">DMR</option>
-            <option style="color: black;" value="SMG" :disabled="teamMate3Class == 'SMG' || teamMate2Class == 'SMG'">SMG</option>
-          </select>
-          <br><br><br>
-          <label class="text-white">
-            Discord Player 2
-          </label>
-          <input type="text" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; border-color: white;" placeholder="Discord" v-model="teamMate2DSC">
-          <label class="text-white">
-            Weaponclass Player 2
-          </label>
-          <select class="form-select w-full text-white" v-model="teamMate2Class" style="background-color: transparent !important; border-color: white;">
-            <option style="color: black;" value="AR" :disabled="teamMate3Class == 'AR' || teamMate1Class == 'AR'">AR</option>
-            <option style="color: black;" value="DMR" :disabled="teamMate3Class == 'DMR' || teamMate1Class == 'DMR'">DMR</option>
-            <option style="color: black;" value="SMG" :disabled="teamMate3Class == 'SMG' || teamMate1Class == 'SMG'">SMG</option>
-          </select>
-          <br><br><br>
-           <label class="text-white">
-            Discord Player 3
-          </label>
-          <input type="text" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; border-color: white;" placeholder="Discord" v-model="teamMate3DSC">
-          <label class="text-white">
-            Weaponclass Player 3
-          </label>
-          <select class="form-select w-full text-white" v-model="teamMate3Class" style="background-color: transparent !important; border-color: white;">
-            <option style="color: black;" value="AR" :disabled="teamMate2Class == 'AR' || teamMate1Class == 'AR'">AR</option>
-            <option style="color: black;" value="DMR" :disabled="teamMate2Class == 'DMR' || teamMate1Class == 'DMR'">DMR</option>
-            <option style="color: black;" value="SMG" :disabled="teamMate2Class == 'SMG' || teamMate1Class == 'SMG'">SMG</option>
-          </select>
-          <br><br>
-          <button class="def-button text-white" @submit.prevent="registerTeam" style="border: 2px solid; border-radius: 15px; padding: 8px 32px; font-weight: 900;">Register</button>
-      </form>
     </div>
     <div class="mx-auto w-1/2" v-if="started == 'true'">
       <div class="text-center mt-8 pt-20">
