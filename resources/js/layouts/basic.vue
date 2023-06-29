@@ -1,4 +1,5 @@
 <template>
+
   <div class="font-hairline h-screen w-screen flex text-gray-80 bg-def">
     <child />
   </div>

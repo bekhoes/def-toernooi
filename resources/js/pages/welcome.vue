@@ -13,8 +13,8 @@
 
     <div class="mx-auto w-1/2 text-left" v-if="started == 'false'" >
       <div style="background-color: rgba(0, 0, 0, 0.70) !important; padding: 4px; border-radius: 10px; margin-top: 25px;">
-        <div class="text-center mt-8 pt-20">
-          <h1 class="lg:text-8xl sm:text-6xl font-bold text-white" style="font-family: nasalization-rg">CROSSFIRE</h1>
+        <div class="text-center ">
+          <h1 class="lg:text-8xl sm:text-6xl font-bold text-white" style="font-family: 'Rubik Burned', cursive;">CROSSFIRE</h1>
         </div>
         <div class="grid grid-cols-8 mb-4">
           <div>
@@ -110,7 +110,7 @@
       </div>
     </div>
     <div class="mx-auto w-1/2" v-if="started == 'true'">
-      <div class="text-center mt-8 pt-20">
+      <div class="text-center pt-8">
         <h1 class="lg:text-6xl sm:text-4xl font-bold def-header-class"><span class="text-red-500">DUTCH</span> <span class="text-white">ELITE</span> <span class="text-blue-600">FORCES</span></h1>
         <h1 class="lg:text-8xl sm:text-6xl font-bold text-black" >TOURNEY</h1>
         <h1 class="text-4xl font-bold text-white">LIVE SCOREBORD</h1>
@@ -141,7 +141,7 @@
       </table>
     </div>
     <div class="mx-auto w-1/2" v-if="started == 'hold'">
-      <div class="text-center mt-8 pt-20">
+      <div class="text-center pt-8">
         <h1 class="lg:text-6xl sm:text-4xl font-bold def-header-class"><span class="text-red-500">DUTCH</span> <span class="text-white">ELITE</span> <span class="text-blue-600">FORCES</span></h1>
         <h1 class="lg:text-8xl sm:text-6xl font-bold text-black" >TOURNEY</h1>
         <h1 class="text-4xl font-bold text-white">AANMELDINGEN GESLOTEN!</h1>
