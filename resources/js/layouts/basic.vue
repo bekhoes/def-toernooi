@@ -11,7 +11,7 @@ export default {
 </script>
 <style scoped>
   .bg-def {
-    background-image: url("/interchangelandscape.png");
+    background-image: url("/Customs_NewGasStation1.jpg");
       background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;

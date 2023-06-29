@@ -4,3 +4,11 @@
 
 @import '~sweetalert2/src/sweetalert2';
 @import 'default';
+
+// add font nasalization-rg.otf
+@font-face {
+    font-family: 'nasalization-rg';
+    src: url('../../public/nasalization-rg.otf');
+    font-weight: normal;
+    font-style: normal;
+}

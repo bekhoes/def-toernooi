@@ -38,27 +38,25 @@ class TeamController extends Controller
     {
         $team = new Team;
         $team->name = $request->team_name;
+        $team->country = $request->country;
         $team->save();
 
         // teammate 1
         $player = new Player;
         $player->team_id = $team->id;
         $player->discord_name = $request->teamMate1DSC;
-        $player->tarkov_name = $request->teamMate1BSG;
         $player->class = $request->teamMate1Class;
         $player->save();
         // teammate 2
         $player = new Player;
         $player->team_id = $team->id;
         $player->discord_name = $request->teamMate2DSC;
-        $player->tarkov_name = $request->teamMate2BSG;
         $player->class = $request->teamMate2Class;
         $player->save();
         // teammate 3
         $player = new Player;
         $player->team_id = $team->id;
         $player->discord_name = $request->teamMate3DSC;
-        $player->tarkov_name = $request->teamMate3BSG;
         $player->class = $request->teamMate3Class;
         $player->save();
         return response()->json($team);
