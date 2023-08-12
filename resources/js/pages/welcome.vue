@@ -59,6 +59,7 @@
               <option value="Norway" style="color: #000;">Norway</option>
               <option value="Poland" style="color: #000;">Poland</option>
               <option value="Sweden" style="color: #000;">Sweden</option>
+              <option value="Reserve" style="color: #000;">Reserve</option>
             </select>
             <label class="text-white">
               Teamname
