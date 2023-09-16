@@ -16,7 +16,7 @@
         <div class="text-center ">
           <h1 class="lg:text-8xl sm:text-6xl font-bold text-white" style="font-family: 'Bender', cursive;">CROSSFIRE</h1>
         </div>
-        <div class="grid grid-cols-8 mb-4">
+        <!-- <div class="grid grid-cols-8 mb-4">
           <div>
             <img src="/dk.png" alt="Denmark" class="w-16 mx-auto">
           </div>
@@ -41,13 +41,13 @@
           <div>
             <img src="/se.png" alt="Sweden" class="w-16 mx-auto">
           </div>
-        </div>
+        </div> -->
         <form class="form-bg p-4 rounded-xl"  @submit.prevent="registerTeam">
             <h1 class="text-center text-2xl font-bold text-white">REGISTRATION FORM</h1>
             <p class="text-white text-center">
               Please make sure that you fill in your teamleader as player 1!
             </p>
-            <label class="text-white">
+            <!-- <label class="text-white">
               Country
             </label>
             <select name="country" id="country" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; backdrop-filter: blur(7px); border-color: white;" placeholder="Teamname (Max. 20 characters)" v-model="country">
@@ -60,7 +60,7 @@
               <option value="Poland" style="color: #000;">Poland</option>
               <option value="Sweden" style="color: #000;">Sweden</option>
               <option value="Reserve" style="color: #000;">Reserve</option>
-            </select>
+            </select> -->
             <label class="text-white">
               Teamname
             </label>
@@ -182,7 +182,7 @@ export default {
     teamMate3BSG: '',
     teamMate3DSC: '',
     teamMate3Class: '',
-    country: null
+    country: '-'
   }),
 
   computed: mapGetters({
