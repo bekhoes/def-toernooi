@@ -12,7 +12,7 @@ export default {
 </script>
 <style scoped>
   .bg-def {
-    background-image: url("/background.webp");
+    background-image: url("/background_interchange.webp");
       background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
