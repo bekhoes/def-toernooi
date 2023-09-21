@@ -180,7 +180,7 @@ export default {
   layout: 'basic',
 
   metaInfo () {
-    return { title: this.$t('home') }
+    return { title: 'Signup for the tournament!' }
   },
 
   data: () => ({
