@@ -45,20 +45,24 @@ class TeamController extends Controller
         $player = new Player;
         $player->team_id = $team->id;
         $player->discord_name = $request->teamMate1DSC;
+        $player->twitch_url = $request->teamMate1TWITCH;
         $player->class = $request->teamMate1Class;
         $player->save();
         // teammate 2
         $player = new Player;
         $player->team_id = $team->id;
         $player->discord_name = $request->teamMate2DSC;
+        $player->twitch_url = $request->teamMate2TWITCH;
         $player->class = $request->teamMate2Class;
         $player->save();
         // teammate 3
         $player = new Player;
         $player->team_id = $team->id;
         $player->discord_name = $request->teamMate3DSC;
+        $player->twitch_url = $request->teamMate3TWITCH;
         $player->class = $request->teamMate3Class;
         $player->save();
+        
         return response()->json($team);
     }
 

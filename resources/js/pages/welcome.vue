@@ -72,9 +72,14 @@
             </label>
             <input type="text" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; backdrop-filter: blur(7px); border-color: white;" placeholder="Discord" v-model="teamMate1DSC">
             <label class="text-white">
+              Twitch Player 1
+            </label>
+            <input type="text" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; backdrop-filter: blur(7px); border-color: white;" placeholder="Twitch URL" v-model="teamMate1TWITCH">
+            <label class="text-white">
               Weaponclass Player 1
             </label>
             <select class="form-select w-full text-white" v-model="teamMate1Class" style="background-color: transparent !important; backdrop-filter: blur(7px); border-color: white;">
+              <option style="color: black;" value="" :disabled="true">Select class</option>
               <option style="color: black;" value="AR" :disabled="teamMate3Class == 'AR' || teamMate2Class == 'AR'">AR</option>
               <option style="color: black;" value="DMR" :disabled="teamMate3Class == 'DMR' || teamMate2Class == 'DMR'">DMR</option>
               <option style="color: black;" value="SMG" :disabled="teamMate3Class == 'SMG' || teamMate2Class == 'SMG'">SMG</option>
@@ -85,9 +90,14 @@
             </label>
             <input type="text" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; backdrop-filter: blur(7px); border-color: white;" placeholder="Discord" v-model="teamMate2DSC">
             <label class="text-white">
+              Twitch Player 2
+            </label>
+            <input type="text" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; backdrop-filter: blur(7px); border-color: white;" placeholder="Twitch URL" v-model="teamMate2TWITCH">
+            <label class="text-white">
               Weaponclass Player 2
             </label>
             <select class="form-select w-full text-white" v-model="teamMate2Class" style="background-color: transparent !important; backdrop-filter: blur(7px); border-color: white;">
+              <option style="color: black;" value="" :disabled="true">Select class</option>
               <option style="color: black;" value="AR" :disabled="teamMate3Class == 'AR' || teamMate1Class == 'AR'">AR</option>
               <option style="color: black;" value="DMR" :disabled="teamMate3Class == 'DMR' || teamMate1Class == 'DMR'">DMR</option>
               <option style="color: black;" value="SMG" :disabled="teamMate3Class == 'SMG' || teamMate1Class == 'SMG'">SMG</option>
@@ -98,9 +108,14 @@
             </label>
             <input type="text" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; backdrop-filter: blur(7px); border-color: white;" placeholder="Discord" v-model="teamMate3DSC">
             <label class="text-white">
+              Twitch Player 3
+            </label>
+            <input type="text" class="form-input w-full opacity-100 text-white" style="background-color: transparent !important; backdrop-filter: blur(7px); border-color: white;" placeholder="Twitch URL" v-model="teamMate3TWITCH">
+            <label class="text-white">
               Weaponclass Player 3
             </label>
             <select class="form-select w-full text-white" v-model="teamMate3Class" style="background-color: transparent !important; backdrop-filter: blur(7px); border-color: white;">
+              <option style="color: black;" value="" :disabled="true">Select class</option>
               <option style="color: black;" value="AR" :disabled="teamMate2Class == 'AR' || teamMate1Class == 'AR'">AR</option>
               <option style="color: black;" value="DMR" :disabled="teamMate2Class == 'DMR' || teamMate1Class == 'DMR'">DMR</option>
               <option style="color: black;" value="SMG" :disabled="teamMate2Class == 'SMG' || teamMate1Class == 'SMG'">SMG</option>
@@ -175,12 +190,15 @@ export default {
     teamName: '',
     teamMate1BSG: '',
     teamMate1DSC: '',
+    teamMate1TWITCH: '',
     teamMate1Class: '',
     teamMate2BSG: '',
     teamMate2DSC: '',
+    teamMate2TWITCH: '',
     teamMate2Class: '',
     teamMate3BSG: '',
     teamMate3DSC: '',
+    teamMate3TWITCH: '',
     teamMate3Class: '',
     country: '-'
   }),
@@ -196,7 +214,18 @@ export default {
           type: 'error',
           title: 'Your teamname cannot be longer than 20 characters.'
         })
-      } else if (self.teamName == '' || self.teamMate1DSC == '' || self.teamMate1Class == '' || self.teamMate2DSC == '' || self.teamMate2Class == '' || self.teamMate3DSC == '' || self.teamMate3Class == '' || self.country == null) {
+      } else if (
+          self.teamName == '' || 
+          self.teamMate1DSC == '' || 
+          self.teamMate1Class == '' || 
+          self.teamMate2DSC == '' || 
+          self.teamMate2Class == '' || 
+          self.teamMate3DSC == '' || 
+          self.teamMate3Class == '' || 
+          self.country == null || 
+          self.teamMate1TWITCH  == '' || 
+          self.teamMate2TWITCH  == '' || 
+          self.teamMate3TWITCH == '') {
         Swal.fire({
           type: 'error',
           title: 'You haven\'t filled in all fields'
@@ -211,6 +240,9 @@ export default {
           teamMate2Class: this.teamMate2Class,
           teamMate3DSC: this.teamMate3DSC,
           teamMate3Class: this.teamMate3Class,
+          teamMate1TWITCH: this.teamMate1TWITCH,
+          teamMate2TWITCH: this.teamMate2TWITCH,
+          teamMate3TWITCH: this.teamMate3TWITCH
         }).then(function (response) {
           Swal.fire({
             type: 'success',
